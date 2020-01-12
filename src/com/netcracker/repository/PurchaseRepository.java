@@ -23,4 +23,7 @@ public interface PurchaseRepository extends JpaRepository<Purchase, Long> {
 
     @Query(value = "select distinct t.date from purchase t", nativeQuery = true)
     List<Date> retrieveDate();
+
+    @Query(value = "select p.date, c.family, c.discount, b.name, sum(p.amount) from purchase p join customer c on p.customer=c.id join book b on p.book=b.id group by p.date, c.family, c.discount, b.name", nativeQuery = true)
+    List<String> retrieveDateFamilyDiscountNameAmount();
 }

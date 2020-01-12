@@ -63,4 +63,8 @@ public class PurchaseService {
     public List<Date> retrieveDate(){
         return purchaseRepository.retrieveDate();
     }
+
+    public List<String> retrieveDateFamilyDiscountNameAmount() {
+        return purchaseRepository.retrieveDateFamilyDiscountNameAmount();
+    }
 }
